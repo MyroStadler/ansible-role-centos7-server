@@ -23,7 +23,7 @@ Example Playbook
 
 ```
 ---
-- name: "Imstall server packages"
+- name: "Install server packages"
   hosts: all
   become: true
   tasks:
