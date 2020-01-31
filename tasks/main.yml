@@ -9,8 +9,27 @@
 
 - name: Install common server packages
   yum:
-    name: "{{ server_packages + server_apache_packages + server_ops_packages + server_extra_packages }}"
+    name: "{{ server_packages }}"
     state: present
+    update_cache: true
+
+- name: Install server_apache_packages
+  yum:
+    name: "{{ server_apache_packages }}"
+    state: present
+    update_cache: true
+
+- name: Install server_ops_packages
+  yum:
+    name: "{{ server_ops_packages }}"
+    state: present
+    update_cache: true
+
+- name: Install server_extra_packages
+  yum:
+    name: "{{ server_extra_packages }}"
+    state: present
+    update_cache: true
 
 - name: Enable services
   service:
